@@ -11,9 +11,14 @@ from fastapi.middleware.cors import CORSMiddleware
 app=FastAPI()
 app.title="API de prueba"
 app.version="0.0.1"
+origins = ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*']
+     allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.post("/analyze/")
