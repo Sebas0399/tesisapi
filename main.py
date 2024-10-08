@@ -6,11 +6,15 @@ from io import BytesIO
 import onnxruntime as rt
 from onnxruntime.datasets import get_example
 from onnx_tf.backend import prepare
+from fastapi.middleware.cors import CORSMiddleware
 
 app=FastAPI()
 app.title="API de prueba"
 app.version="0.0.1"
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*']
+)
 
 @app.post("/analyze/")
 async def analyze(file: UploadFile = File(...)):
