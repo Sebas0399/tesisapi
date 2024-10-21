@@ -12,7 +12,7 @@ app=FastAPI()
 app.title="API de prueba"
 app.version="0.0.1"
 origins = ["*"]
-clases=["buena","mixta","mala"]
+clases=["buena","mala","mixta"]
 model_aux=None
 model=None
 app.add_middleware(
